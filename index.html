@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AQ FITNESS | Transform Your Body</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#0f0f0f;
+--accent:#ff3c00;
+--text:#ffffff;
+--gray:#bfbfbf;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:var(--bg);
+color:var(--text);
+}
+
+h1,h2,h3{
+font-family:'Bebas Neue',sans-serif;
+letter-spacing:2px;
+}
+
+section{
+padding:90px 8%;
+}
+
+/* NAVBAR */
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+transition:.3s;
+z-index:1000;
+}
+
+header.scrolled{
+background:#000;
+box-shadow:0 5px 20px rgba(0,0,0,.5);
+}
+
+.logo{
+font-size:30px;
+}
+
+.logo span{
+color:var(--accent);
+}
+
+nav{
+display:flex;
+align-items:center;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav a{
+color:var(--text);
+text-decoration:none;
+font-size:14px;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--accent);
+}
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+.btn{
+padding:10px 25px;
+border:none;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+
+.btn-primary{
+background:var(--accent);
+color:#fff;
+}
+
+.btn-outline{
+border:2px solid var(--accent);
+background:transparent;
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 0 20px rgba(255,60,0,.6);
+}
+
+/* HERO */
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+display:flex;
+align-items:center;
+position:relative;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+top:0;
+left:0;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:650px;
+animation:fadeIn 1.5s ease;
+}
+
+.hero h1{
+font-size:70px;
+line-height:1;
+}
+
+.hero p{
+color:var(--gray);
+margin:20px 0;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* SERVICES */
+.services{text-align:center;}
+.services h2{font-size:50px;margin-bottom:50px;}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:#181818;
+padding:35px;
+border-radius:10px;
+transition:.3s;
+border:1px solid transparent;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border:1px solid var(--accent);
+box-shadow:0 0 25px rgba(255,60,0,.5);
+}
+
+/* PRICING */
+.pricing{text-align:center;}
+.pricing h2{font-size:50px;margin-bottom:50px;}
+
+.price-card{
+background:#181818;
+padding:45px 30px;
+border-radius:10px;
+transition:.3s;
+}
+
+.price-card.highlight{
+border:2px solid var(--accent);
+transform:scale(1.05);
+box-shadow:0 0 30px rgba(255,60,0,.5);
+}
+
+.price{
+font-size:45px;
+color:var(--accent);
+margin:20px 0;
+}
+
+/* CTA */
+.cta{
+background:url('https://images.unsplash.com/photo-1584466977773-e625c37cdd50?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+position:relative;
+text-align:center;
+}
+
+.cta::after{
+content:"";
+position:absolute;
+background:rgba(0,0,0,.8);
+width:100%;
+height:100%;
+top:0;
+left:0;
+}
+
+.cta-content{
+position:relative;
+z-index:2;
+}
+
+.cta h2{
+font-size:60px;
+margin-bottom:30px;
+}
+
+/* FOOTER */
+footer{
+background:#000;
+padding:50px 8%;
+text-align:center;
+border-top:2px solid var(--accent);
+}
+
+footer p{
+color:var(--gray);
+margin-top:10px;
+font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.hero h1{font-size:50px;}
+
+nav ul{
+position:absolute;
+top:80px;
+right:0;
+background:#000;
+flex-direction:column;
+width:200px;
+padding:20px;
+display:none;
+}
+
+nav ul.active{display:flex;}
+
+.menu-toggle{display:block;}
+}
+</style>
+</head>
+
+<body>
+
+<header id="navbar">
+<div class="logo">AQ <span>FITNESS</span></div>
+
+<nav>
+<div class="menu-toggle" id="menu-toggle">☰</div>
+<ul id="menu">
+<li><a href="#">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#pricing">Plans</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+
+<button class="btn btn-primary">Join Now</button>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Welcome to AQ FITNESS</h1>
+<p>Your Body Will Transform<br>Transform Your Body. Dominate Your Limits.</p>
+<div class="hero-buttons">
+<button class="btn btn-primary">Join Now</button>
+<button class="btn btn-outline">View Plans</button>
+</div>
+</div>
+</section>
+
+<section class="services" id="services">
+<h2>Fitness Plans & Nutrition</h2>
+<div class="grid">
+<div class="card"><h3>Weight Loss</h3><p>Burn fat & build lean muscle effectively.</p></div>
+<div class="card"><h3>Classic Yoga</h3><p>Improve flexibility & inner strength.</p></div>
+<div class="card"><h3>Cycling</h3><p>High-intensity cardio training.</p></div>
+<div class="card"><h3>Body Building</h3><p>Serious strength & mass building.</p></div>
+<div class="card"><h3>Meditation</h3><p>Balance mind and muscle power.</p></div>
+<div class="card"><h3>Fitness Running</h3><p>Boost stamina and endurance.</p></div>
+</div>
+</section>
+
+<section class="pricing" id="pricing">
+<h2>Subscribe To Plans</h2>
+<div class="grid">
+<div class="price-card">
+<h3>Standard</h3>
+<div class="price">₹1499</div>
+<button class="btn btn-outline">Join Now</button>
+</div>
+<div class="price-card highlight">
+<h3>Pro</h3>
+<div class="price">₹2499</div>
+<button class="btn btn-primary">Join Now</button>
+</div>
+<div class="price-card">
+<h3>Elite</h3>
+<div class="price">₹3999</div>
+<button class="btn btn-outline">Join Now</button>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="cta-content">
+<h2>Start Training at AQ FITNESS Today</h2>
+<button class="btn btn-primary">Join Now</button>
+</div>
+</section>
+
+<footer>
+<h3>AQ FITNESS</h3>
+<p>© 2026 AQ FITNESS. All rights reserved.</p>
+</footer>
+
+<script>
+window.addEventListener("scroll",function(){
+document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>50);
+});
+
+document.getElementById("menu-toggle").onclick=function(){
+document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
